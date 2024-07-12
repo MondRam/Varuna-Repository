@@ -12,7 +12,7 @@ const LogoutButton = ({ onLogout }) => {
 
   return (
     <button
-      className="btn btn-danger logout-button"
+      className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
       onClick={handleLogout}
       aria-label="Logout"
     >
@@ -22,4 +22,5 @@ const LogoutButton = ({ onLogout }) => {
 };
 
 export default LogoutButton;
+
 

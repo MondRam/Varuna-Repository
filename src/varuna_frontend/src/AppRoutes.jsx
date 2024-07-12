@@ -4,8 +4,9 @@ import { useConnect } from '@connect2ic/react';
 import { useUser } from './UserContext';
 import LandingPage from './components/LandingPage';
 import Home from './components/Home';
-import LogoutButton from './components/LogoutButton';
 import Sensors from './components/Sensors';
+import Chart from './components/Chart';
+import Header from './components/Header';
 
 function AppRoutes() {
   const { isConnected, principal, disconnect } = useConnect();
@@ -26,12 +27,15 @@ function AppRoutes() {
 
   return (
     <>
-      {isConnected && location.pathname !== '/' && <LogoutButton onLogout={() => navigate('/')} />}
+      {isConnected && location.pathname !== '/' && (
+        <Header onLogout={() => navigate('/')} />
+      )}
       <main>
         <Routes>
           <Route path="/" element={<LandingPage onEnter={() => navigate('/home')} />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/sensors" element = {<Sensors />} />
+          <Route path="/sensors" element={<Sensors />} />
+          <Route path="/chart" element={<Chart />} />
         </Routes>
       </main>
     </>
@@ -39,5 +43,8 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
+
+
+
 
 
