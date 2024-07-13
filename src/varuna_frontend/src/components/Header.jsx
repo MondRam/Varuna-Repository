@@ -7,7 +7,6 @@ import lupa from '../imagenes/lupita.png';
 import grafica from '../imagenes/Grafica (2).jpeg';
 import mensaje from '../imagenes/mensajito.jpeg';
 import personas from '../imagenes/personas.jpeg';
-import Sensors from './Sensors'; // Importar el componente Sensors
 
 const Header = ({ onLogout }) => {
     return (
@@ -19,6 +18,7 @@ const Header = ({ onLogout }) => {
             <nav className="flex space-x-6">
                 <Link to="/panel" className="text-gray-600 hover:text-gray-800">Panel</Link>
                 <Link to="/chart" className="text-gray-600 hover:text-gray-800">Graficas</Link>
+                <Link to="/sensors" className="text-gray-600 hover:text-gray-800">Sensores</Link> {/* Enlace a Sensors */}
                 <a href="#" className="text-gray-600 hover:text-gray-800">Resultados</a>
                 <a href="#" className="text-gray-600 hover:text-gray-800">Posts</a>
                 <a href="#" className="text-gray-600 hover:text-gray-800">Perfil</a>
@@ -45,7 +45,6 @@ const Header = ({ onLogout }) => {
                 </button>
                 <LogoutButton onLogout={onLogout} />
             </div>
-            <Sensors /> {/* Añadir el componente Sensors */}
         </header>
     );
 };
