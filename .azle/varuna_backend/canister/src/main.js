@@ -119988,13 +119988,22 @@ var src_default = Server2(() => {
   const app = (0, import_express.default)();
   app.use((0, import_cors.default)());
   app.use(import_express.default.json());
-  app.get("/greet", (req, res) => {
+  function AuthGuard(req, res, next) {
+    if (ic.caller().isAnonymous()) {
+      res.status(401);
+      res.send("You are not authorized to access this resource.");
+    } else {
+      next();
+    }
+  }
+  ;
+  app.get("/greet", AuthGuard, (req, res) => {
     return res.status(200).send({ message: "Hello World from Azle!" });
   });
-  app.get("/sample", (req, res) => {
+  app.get("/sample", AuthGuard, (req, res) => {
     return res.status(200).send({ message: sample });
   });
-  app.post("/sample/post", (req, res) => {
+  app.post("/sample/post", AuthGuard, (req, res) => {
     const { id: id3, dateTime, pH, temperature, turbidity } = req.body;
     if (!id3 || !dateTime || !pH || !temperature || !turbidity) {
       return res.status(400).send({ message: "Incomplete sample data" });

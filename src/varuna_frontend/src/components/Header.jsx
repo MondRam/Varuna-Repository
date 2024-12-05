@@ -17,7 +17,8 @@ const Header = ({ onLogout }) => {
             </div>
             <nav className="flex space-x-6">
                 <Link to="/panel" className="text-gray-600 hover:text-gray-800">Panel</Link>
-                <Link to="/chart" className="text-gray-600 hover:text-gray-800">Chart</Link>
+                <Link to="/chart" className="text-gray-600 hover:text-gray-800">Graficas</Link>
+                <Link to="/sensors" className="text-gray-600 hover:text-gray-800">Sensores</Link> {/* Enlace a Sensors */}
                 <a href="#" className="text-gray-600 hover:text-gray-800">Resultados</a>
                 <a href="#" className="text-gray-600 hover:text-gray-800">Posts</a>
                 <a href="#" className="text-gray-600 hover:text-gray-800">Perfil</a>
